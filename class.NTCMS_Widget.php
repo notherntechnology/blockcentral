@@ -55,7 +55,9 @@ class NTCMS_Widget extends WP_Widget {
 			}
 			echo "<select id=\"".$this->get_field_id( 'ntcms_tag' )."\" name=\"".$this->get_field_name( 'ntcms_tag' )."\"><option selected value=\"".esc_attr( $tag )."\">".esc_attr( $tag )."</option>";
 			foreach ($tags as $tmpTag){
-				echo "<option value=\"".$tmpTag."\">".$tmpTag."</option>";
+				if (esc_attr( $tag ) != $tmpTag){
+					echo "<option value=\"".$tmpTag."\">".$tmpTag."</option>";
+				}
 			}
 			echo "</select></p>";
 	}

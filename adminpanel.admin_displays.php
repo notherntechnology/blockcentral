@@ -57,7 +57,7 @@ function ntcms_admin_displays() {
 		 $availableDisplays = $wpdb->get_results($sql);
 		 foreach ($availableDisplays as $tmpDisplay){
 			echo "<tr><td>".$tmpDisplay->name."</td><td>".substr(strip_tags($tmpDisplay->template),0,25)."</td><td>[ 
-			<a href=\"".$returnURL."&northern_cms_display_id=".$tmpDisplay->id."&northern_cms_action=delete_display\" onClick=\"if(!confirm('Are you sure?')){return false;}\">DEL</a> ] [ 
+			<a href=\"".$returnURL."&northern_cms_display_id=".$tmpDisplay->id."&northern_cms_action=delete_display\" onClick=\"if(!confirm('Delete ".$tmpDisplay->name."?')){return false;}\">DEL</a> ] [ 
 			<a href=\"".$returnURL."&northern_cms_display_id=".$tmpDisplay->id."&northern_cms_action=edit_display\">EDIT</a> ]</td></tr>";
 		}
 		echo "</table>";

@@ -49,27 +49,27 @@ function ntcms_admin_content() {
 	} elseif ($northern_cms_action == "update_status"){
 		foreach ( $_POST as $key => $value ) {
 			if (strstr($key, "cmsstatus_")){
-				list($prefix, $contentID) = split("_", $key);
+				list($prefix, $contentID) = explode("_", $key);
 				$updateResult = $wpdb->update($wpdb->prefix . 'northern_cms_content',array('status'=>$value),
 				array("id"=>$contentID));
 			}
 			if (strstr($key, "startdate_")){
-				list($prefix, $contentID) = split("_", $key);
+				list($prefix, $contentID) = explode("_", $key);
 				$updateResult = $wpdb->update($wpdb->prefix . 'northern_cms_content',array('start_dtm'=>$value),
 				array("id"=>$contentID));
 			}
 			if (strstr($key, "enddate_")){
-				list($prefix, $contentID) = split("_", $key);
+				list($prefix, $contentID) = explode("_", $key);
 				$updateResult = $wpdb->update($wpdb->prefix . 'northern_cms_content',array('end_dtm'=>$value),
 				array("id"=>$contentID));
 			}
 			if (strstr($key, "display_")){
-				list($prefix, $contentID) = split("_", $key);
+				list($prefix, $contentID) = explode("_", $key);
 				$updateResult = $wpdb->update($wpdb->prefix . 'northern_cms_content',array('formatting_id'=>$value),
 				array("id"=>$contentID));
 			}
 			if (strstr($key, "sequence_")){
-				list($prefix, $contentID) = split("_", $key);
+				list($prefix, $contentID) = explode("_", $key);
 				$updateResult = $wpdb->update($wpdb->prefix . 'northern_cms_content',array('sequence'=>$value),
 				array("id"=>$contentID));
 			}
@@ -199,7 +199,7 @@ function ntcms_admin_content() {
 			}
 			echo "<td><input type=text size=4 name=\"sequence_".$tmpContent->id."\" value=\"".$tmpContent->sequence."\"></td><td>".$schedString."</td><td><input type=text class=\"northern-date\" id=\"startdate_".$tmpContent->id."\" name=\"startdate_".$tmpContent->id."\" value=\"".$startDate."\">";
 			echo "</td><td><input type=text class=\"northern-date\" id=\"enddate_".$tmpContent->id."\" name=\"enddate_".$tmpContent->id."\" value=\"".$endDate."\"><td>["; 
-			echo "<a href=\"".$returnURL."&northern_cms_content_id=".$tmpContent->id."&northern_cms_action=delete_content\" onClick=\"if(!confirm('Are you sure?')){return false;}\">DEL</a> ] [ <a href=\"".$returnURL."&northern_cms_content_id=".$tmpContent->id."&northern_cms_action=edit_content\">EDIT</a> ]</td></tr>";
+			echo "<a href=\"".$returnURL."&northern_cms_content_id=".$tmpContent->id."&northern_cms_action=delete_content\" onClick=\"if(!confirm('Delete ".$tmpContent->name."?')){return false;}\">DEL</a> ] [ <a href=\"".$returnURL."&northern_cms_content_id=".$tmpContent->id."&northern_cms_action=edit_content\">EDIT</a> ]</td></tr>";
 			$tmpTagArray = explode(" ", $tmpContent->tag);
 			foreach ($tmpTagArray as $tmpTag){
 				if (!in_array($tmpTag, $tags)) $tags[] = $tmpTag;

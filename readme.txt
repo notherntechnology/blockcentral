@@ -3,9 +3,9 @@
 ** Northern Technology CMS WordPress Extension **
 *************************************************
 
-Version: 0.1
-Web: http://nothern.technology
-SRC: gitlab url
+Version: BETA 0.2
+Web: http://www.northern.technology/blockcentral/
+SRC: https://github.com/notherntechnology/blockcentral
 
 >> Description:
 
@@ -14,6 +14,10 @@ Purpose of Block Central:
 Many content management systems provide the ability to manage blocks of content and position them at arbitrary points on a site.  This can be useful for things like generalized contact information, messages that need to appear in specific locations, and other scenarios where content needs to be used in multiple locations.  WordPress somewhat addresses this functionality with widgets, but widgets are not centrally managed and are not easy to use in the content body of pages/posts - and if a site uses multiple layout templates, this can drive the need for multiple positioned widgets containing the same content which will need to be managed separately.
 
 Northern Technology’s CMS WordPress extension allows one to create and centrally manage blocks of content and then either insert the block into a page or post via a ShortCode or into the theme via a widget.  Content is referenced via tags so potentially multiple blocks of content can be inserted by referencing a single tag.  Additionally, content can be made active or inactive to display or suppress its display and each block of content can have effective dates to display in (i.e. show this block from “July 1st to August 1st” - or “stop showing this block on December 25th”).  Leveraging this functionality makes it easy to stop/start/add/remove content from a central location without worrying about whether all the instances of widgets, pages or posts have been updated.
+
+>> Supported PHP Versions
+
+BlockCentral has been tested on PHP 5.6 and 7.0 running against MySQL 5.6 and 5.7 on WordPress 4.7.x.
 
 >> Installation:
 
